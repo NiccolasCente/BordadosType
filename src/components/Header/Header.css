@@ -1,6 +1,6 @@
 header {
     font-family: Arial, sans-serif;
-    background-color: rgb(53, 52, 52);
+    background-color: #FFD7DD;
   }
   
   header div {
@@ -64,7 +64,7 @@ header {
   }
   
   .nav-sections .nav-link:hover {
-    color: #096a88; 
+    color: #FFD7DD; 
     text-decoration: none; 
   }
 

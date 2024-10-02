@@ -1,11 +1,14 @@
 import React from "react";
 import { Container, Row, Col, Nav, Form, FormControl, Button } from "react-bootstrap";
 import { FaPhone, FaEnvelope, FaInstagram, FaUser, FaHeart, FaShoppingCart, FaSearch } from "react-icons/fa";
+import { Link, useLocation } from "react-router-dom"; 
 import Logo from "../../assets/Header/Logo.png";
 import "./Header.css"; 
 import "../../assets/GlobalStyles.css";
 
 const Header: React.FC = () => {
+  const location = useLocation(); 
+
   return (
     <>
       <header>
@@ -40,7 +43,9 @@ const Header: React.FC = () => {
           <Container>
             <Row className="align-items-center">
               <Col xs={12} md={4} className="d-flex align-items-center">
-                <img src={Logo} alt="Logo" className="img-fluid header-logo" /> 
+              <Link to="/">
+                <img src={Logo} alt="Logo" className="img-fluid header-logo" />
+              </Link>
               </Col>
               <Col xs={12} md={4} className="header-search"> 
                 <Form className="d-flex">
@@ -51,29 +56,32 @@ const Header: React.FC = () => {
                     aria-label="Search"
                   />
                   <Button variant="outline-secondary">
-                    <FaSearch style={{ color: "white" }} />
+                    <FaSearch style={{ color: "black" }} />
                   </Button>
                 </Form>
               </Col>
               <Col xs={12} md={4} className="d-flex justify-content-end header-nav"> 
                 <Nav>
-                  <Nav.Link href="#"><FaUser className="me-3" style={{ color: "white" }} /></Nav.Link>
-                  <Nav.Link href="#"><FaHeart className="me-3" style={{ color: "white" }} /></Nav.Link>
-                  <Nav.Link href="#"><FaShoppingCart style={{ color: "white" }} /></Nav.Link>
+                  {location.pathname !== "/account" && (
+                    <Nav.Link as={Link} to="/account">
+                      <FaUser className="me-3" style={{ color: "black" }} />
+                    </Nav.Link>
+                  )}
+                  <Nav.Link href="#"><FaHeart className="me-3" style={{ color: "black" }} /></Nav.Link>
+                  <Nav.Link href="#"><FaShoppingCart style={{ color: "black" }} /></Nav.Link>
                 </Nav>
               </Col>
             </Row>
           </Container>
         </div>
 
-        {/* Nova barra de navegação */}
         <div className="nav-bottom">
           <Container>
             <Row>
               <Col xs={12} className="d-flex justify-content-start">
                 <Nav className="nav-sections">
-                  <Nav.Link href="#">Início</Nav.Link>
-                  <Nav.Link href="#">Panos de prato</Nav.Link>
+                  <Nav.Link as={Link} to="/">Início</Nav.Link>
+                  <Nav.Link as={Link} to="panos">Panos de prato</Nav.Link>
                   <Nav.Link href="#">Bordados</Nav.Link>
                   <Nav.Link href="#">Toalhas</Nav.Link>
                   <Nav.Link href="#">Novos Produtos</Nav.Link>
