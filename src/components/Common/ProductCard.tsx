@@ -9,11 +9,14 @@ const ProductCard: React.FC<ProductProps> = ({ product }) => {
   return (
     <div key={product.id} className="product-card">
       <img src={product.image} alt={product.title} className="product-image" />
-      <h2 className="product-title">{product.title}</h2>
-      <p className="product-description">{product.description}</p>
-      <p className="product-price">Price: ${product.price.toFixed(2)}</p>
-      <p className="product-category">Category: {product.category}</p> 
-      <a href={product.more} className="product-more">More details</a>
+      <div className="product-info">
+        <h2 className="product-title">{product.title}</h2>
+        <p className="product-description">{product.description}</p>
+        <p className="product-price">R${product.price.toFixed(2)}</p>
+      </div>
+      <div className="products-button">
+        <a href={product.more} className="btn-custom">SAIBA MAIS</a>
+      </div>
     </div>
   );
 };

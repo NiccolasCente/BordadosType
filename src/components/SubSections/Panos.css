@@ -1,0 +1,6 @@
+.panos{
+    background-image: url("../../assets//Main/main_gif.webp");
+    min-height: 300px; 
+    background-size: cover; 
+    background-position: center;
+}

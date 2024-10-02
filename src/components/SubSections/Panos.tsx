@@ -3,10 +3,12 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { panosDePrato } from "../Data/panosDePrato"; 
 import ProductCard from "../Common/ProductCard"; 
+import "../../assets/GlobalStyles.css";
+import "./Panos.css"
 
 const Panos: React.FC = () => {
   return (
-    <section>
+    <section className='panos'>
       <Container>
         <Row>
           {panosDePrato.map((product) => (
