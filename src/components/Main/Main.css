@@ -1,0 +1,115 @@
+main{
+  background-color: rgb(241, 205, 160);
+}
+
+.carousel-img {
+    max-width: 30vw;  
+    margin: 0 auto;  
+    display: block;
+    height: auto;
+    border: 2px solid #00a8e8;
+    margin-top: 2em;
+  }
+  
+  .carousel-img-container {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+  
+  .carousel-title {
+    position: absolute;
+    top: 10px; 
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5rem;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    margin-top: 2em;
+
+  }
+  
+  .carousel-img-container:hover {
+    transform: scale(1.05); 
+    border-color: #fff;     
+  }
+  
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 40px; 
+    height: 40px;
+    background-color: #00a8e8; 
+    border-radius: 50%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+    opacity: 0.9;
+  }
+  
+  .carousel-control-prev:hover,
+  .carousel-control-next:hover {
+    background-color: #1606fc; 
+  }
+  
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    filter: invert(1);
+  }
+  
+  .carousel-control-prev {
+    left: 21em; 
+    margin-top: 14em;
+
+  }
+  
+  .carousel-control-next {
+    right: 21em; 
+    margin-top: 14em;
+
+  }
+  
+  .products-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+  
+  .btn-custom {
+    background-color: #00a8e8;
+    border: none;
+    padding: 0.5rem 2rem;
+    font-size: 1rem;
+  }
+  
+@media (max-width: 768px) {
+  .carousel-title {
+      font-size: 1.2rem;  
+  }
+
+  .carousel-img {
+      max-width: 100%;  
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+      width: 30px; 
+      height: 30px; 
+  }
+
+  .btn-custom {
+      font-size: 0.9rem;  
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-title {
+      font-size: 1rem;  
+  }
+
+  .products-button {
+      margin-top: 0.5rem;  
+  }
+}

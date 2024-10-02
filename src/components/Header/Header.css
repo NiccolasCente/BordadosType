@@ -15,6 +15,11 @@ header {
     margin-left: 1em;
   }
 
+  .header-top a{
+    text-decoration: none;
+    color:black;
+  }
+
   
   header .d-flex {
     gap: 5px;
@@ -52,16 +57,17 @@ header {
   }
   
   .nav-sections .nav-link {
-    color: white;
+    color: white; 
     padding: 0 15px;
     font-size: 16px;
+    transition: background-color 0.3s, color 0.3s; 
   }
   
   .nav-sections .nav-link:hover {
-    text-decoration: underline;
+    color: #096a88; 
+    text-decoration: none; 
   }
 
-  
   @media (max-width: 768px) {
     header img {
       max-width: 150px;  
