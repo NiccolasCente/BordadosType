@@ -1,0 +1,84 @@
+header {
+    font-family: Arial, sans-serif;
+    background-color: rgb(53, 52, 52);
+  }
+  
+  header div {
+    font-size: 14px;
+  }
+
+  .header-top{
+    background-color: rgb(255, 255, 255);
+  }
+
+  .header-top svg{
+    margin-left: 1em;
+  }
+
+  
+  header .d-flex {
+    gap: 5px;
+  }
+  
+  header .d-flex.align-items-center span, 
+  header .d-flex.align-items-center a {
+    margin-left: 4px;
+  }
+  
+  header img {
+    max-width: 100px;
+    width: 10em;
+    height: auto;
+    padding-right: 10px;
+  }
+  
+  header .form-control {
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+  
+  header .btn {
+    padding: 5px 12px;
+  }
+  
+  header .nav .nav-link {
+    font-size: 18px;
+    padding: 0 10px;
+  }
+  
+  .nav-bottom {
+    background-color: rgb(53, 52, 52);
+    padding: 10px 0;
+  }
+  
+  .nav-sections .nav-link {
+    color: white;
+    padding: 0 15px;
+    font-size: 16px;
+  }
+  
+  .nav-sections .nav-link:hover {
+    text-decoration: underline;
+  }
+
+  
+  @media (max-width: 768px) {
+    header img {
+      max-width: 150px;  
+      width: auto;
+      height: auto;
+      display: block;
+      margin: 0 auto;  
+      padding-right: 0; 
+    }
+    
+    header .header-nav {
+      justify-content: center;
+      margin-top: 10px;
+    }
+    
+    header .header-search {
+      margin-top: 10px;
+    }
+
+}
