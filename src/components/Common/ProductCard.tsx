@@ -1,5 +1,6 @@
 import React from 'react';
 import { Product } from '../interfaces/products';
+import '../../assets/GlobalStyles.css';
 
 interface ProductProps {
   product: Product;

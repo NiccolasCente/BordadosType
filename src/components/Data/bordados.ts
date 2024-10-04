@@ -23,5 +23,4 @@ export const bordados: ProductDetails[] = [
     stock:1,
     fullDescription:'Oi',
   },
-  
 ];

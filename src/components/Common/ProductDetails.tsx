@@ -2,12 +2,16 @@ import React from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { panosDePrato } from "../Data/panosDePrato"; 
+import { bordados } from "../Data/bordados"; 
 import "../../assets/GlobalStyles.css";
-
+import "./ProductDetails.css";
 
 const ProductDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>(); 
-  const product = panosDePrato.find((p) => p.id === id); 
+
+  const produtos = [...panosDePrato, ...bordados];
+
+  const product = produtos.find((p) => p.id === id); 
 
   if (!product) {
     return <p>Produto não encontrado!</p>;
@@ -18,7 +22,11 @@ const ProductDetails: React.FC = () => {
       <Container>
         <Row>
           <Col md={6}>
-            <img src={product.image} alt={product.title} className="product-image-detail" />
+            <img 
+              src={product.image} 
+              alt={product.title} 
+              className="product-image-detail" 
+            />
           </Col>
           <Col md={6}>
             <h1 className="product-title-detail">{product.title}</h1>
