@@ -35,6 +35,7 @@ const Main: React.FC = () => {
                     className="d-block w-100 carousel-img"
                     src={Bordados}
                     alt="Bordados"
+                    onClick={() => navigate("/bordados")}
                   />
                 </div>
               </Carousel.Item>

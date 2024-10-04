@@ -82,7 +82,7 @@ const Header: React.FC = () => {
                 <Nav className="nav-sections">
                   <Nav.Link as={Link} to="/">Início</Nav.Link>
                   <Nav.Link as={Link} to="panos">Panos de prato</Nav.Link>
-                  <Nav.Link href="#">Bordados</Nav.Link>
+                  <Nav.Link as={Link} to="bordados">Bordados</Nav.Link>
                   <Nav.Link href="#">Toalhas</Nav.Link>
                   <Nav.Link href="#">Novos Produtos</Nav.Link>
                   <Nav.Link href="#">Serviços</Nav.Link>

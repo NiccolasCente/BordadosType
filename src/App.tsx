@@ -9,6 +9,7 @@ import Account from "./components/Header/Account";
 
 // Import SubSections:
 import Panos from "./components/SubSections/Panos";
+import Bordados from './components/SubSections/Bordados';
 
 // Import Results:
 import ProductDetails from "./components/Common/ProductDetails";  
@@ -23,6 +24,7 @@ function App() {
         <Route path="/account" element={<Account />} /> 
         {/* SubSections */}
         <Route path="/panos" element={<Panos />} />
+        <Route path="/bordados" element={<Bordados />} />
         {/* Resultados - Página de detalhes do produto */}
         <Route path="/produtos/:id" element={<ProductDetails />} /> 
       </Routes>
