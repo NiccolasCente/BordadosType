@@ -9,7 +9,7 @@ export interface Product {
 }
 
 export interface ProductDetails extends Product {
-    fullDescription: string; // Descrição mais completa para exibição nos detalhes
-    stock: number; // Quantidade de estoque
+    fullDescription: string; 
+    stock: number; 
   }
   

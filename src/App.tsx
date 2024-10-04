@@ -11,7 +11,8 @@ import Account from "./components/Header/Account";
 import Panos from "./components/SubSections/Panos";
 
 // Import Results:
-import ProductDetails from "./components/Common/ProductDetails";  // Importando a página de detalhes do produto
+import ProductDetails from "./components/Common/ProductDetails";  
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -23,8 +24,10 @@ function App() {
         {/* SubSections */}
         <Route path="/panos" element={<Panos />} />
         {/* Resultados - Página de detalhes do produto */}
-        <Route path="/produtos/:id" element={<ProductDetails />} />  {/* Adicionada a rota para os detalhes do produto */}
+        <Route path="/produtos/:id" element={<ProductDetails />} /> 
       </Routes>
+        {/*Footer */}
+      <Footer/>
     </Router>
   );
 }

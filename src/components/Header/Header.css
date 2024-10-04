@@ -13,6 +13,7 @@ header {
 
   .header-top svg{
     margin-left: 1em;
+    color:#CD853F
   }
 
   .header-top a{
@@ -64,7 +65,7 @@ header {
   }
   
   .nav-sections .nav-link:hover {
-    color: #FFD7DD; 
+    color: #CD853F; 
     text-decoration: none; 
   }
 

@@ -56,7 +56,7 @@ const Header: React.FC = () => {
                     aria-label="Search"
                   />
                   <Button variant="outline-secondary">
-                    <FaSearch style={{ color: "black" }} />
+                    <FaSearch style={{ color: "#CD853F" }} />
                   </Button>
                 </Form>
               </Col>
@@ -64,11 +64,11 @@ const Header: React.FC = () => {
                 <Nav>
                   {location.pathname !== "/account" && (
                     <Nav.Link as={Link} to="/account">
-                      <FaUser className="me-3" style={{ color: "black" }} />
+                      <FaUser className="me-3" style={{ color: "#CD853F" }} />
                     </Nav.Link>
                   )}
-                  <Nav.Link href="#"><FaHeart className="me-3" style={{ color: "black" }} /></Nav.Link>
-                  <Nav.Link href="#"><FaShoppingCart style={{ color: "black" }} /></Nav.Link>
+                  <Nav.Link href="#"><FaHeart className="me-3" style={{ color: "#CD853F" }} /></Nav.Link>
+                  <Nav.Link href="#"><FaShoppingCart style={{ color: "#CD853F" }} /></Nav.Link>
                 </Nav>
               </Col>
             </Row>

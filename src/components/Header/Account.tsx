@@ -1,9 +1,18 @@
-import React from "react";
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
-import "../../assets/GlobalStyles.css"; 
+import React, { useState } from "react";
+import { Container, Row, Col, Form, Button, Modal } from "react-bootstrap";
+import "../../assets/GlobalStyles.css";
 import "./Account.css";
 
 const Account: React.FC = () => {
+  const [showPasswordModal, setShowPasswordModal] = useState(false);
+  const [showUsernameModal, setShowUsernameModal] = useState(false);
+
+  const handlePasswordModalClose = () => setShowPasswordModal(false);
+  const handlePasswordModalShow = () => setShowPasswordModal(true);
+
+  const handleUsernameModalClose = () => setShowUsernameModal(false);
+  const handleUsernameModalShow = () => setShowUsernameModal(true);
+
   return (
     <section className="account-background">
       <Container className="mt-5">
@@ -31,8 +40,8 @@ const Account: React.FC = () => {
               </div>
             </Form>
             <p>
-              <a href="#">Perdeu sua senha?</a><br />
-              <a href="#">Perdeu seu nome de usuário?</a>
+              <a href="#" onClick={handlePasswordModalShow}>Perdeu sua senha?</a><br />
+              <a href="#" onClick={handleUsernameModalShow}>Perdeu seu nome de usuário?</a>
             </p>
           </Col>
 
@@ -61,6 +70,40 @@ const Account: React.FC = () => {
             </Col>
           </Col>
         </Row>
+
+        <Modal show={showPasswordModal} onHide={handlePasswordModalClose} centered>
+          <Modal.Header closeButton>
+            <Modal.Title>Recuperar Senha</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Form>
+              <Form.Group controlId="recoverEmail">
+                <Form.Label>Digite seu e-mail para recuperar sua senha:</Form.Label>
+                <Form.Control type="email" placeholder="E-mail" />
+              </Form.Group>
+              <Button className="btn-custom mt-3" type="submit">
+                Enviar
+              </Button>
+            </Form>
+          </Modal.Body>
+        </Modal>
+
+        <Modal show={showUsernameModal} onHide={handleUsernameModalClose} centered>
+          <Modal.Header closeButton>
+            <Modal.Title>Recuperar Nome de Usuário</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Form>
+              <Form.Group controlId="recoverUsernameEmail">
+                <Form.Label>Digite seu e-mail para recuperar seu nome de usuário:</Form.Label>
+                <Form.Control type="email" placeholder="E-mail" />
+              </Form.Group>
+              <Button className="btn-custom mt-3" type="submit">
+                Enviar
+              </Button>
+            </Form>
+          </Modal.Body>
+        </Modal>
       </Container>
     </section>
   );
