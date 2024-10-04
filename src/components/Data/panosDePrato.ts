@@ -1,16 +1,17 @@
-import { Product } from '../interfaces/products';
-
-import Pano1 from '../../assets/SubSections/Panos/Pano_001.jpeg'
+import { ProductDetails } from '../interfaces/products';
+import Pano1 from '../../assets/SubSections/Panos/Pano_001.jpeg';
 import Pano2 from '../../assets/SubSections/Panos/Pano_002.jpeg';
 
-export const panosDePrato: Product[] = [
+export const panosDePrato: ProductDetails[] = [
   {
     id: '001',
     image: Pano1,
     title: 'Dias da Semana',
     description: 'Vários panos de prato com os dias da semana.',
     price: 19.99,
-    more: '/produtos/pano_de_prato_1',
+    more: '/produtos/001', 
+    stock: 10,
+    fullDescription: 'Uma descrição completa e detalhada do produto.',
   },
   {
     id: '002',
@@ -18,6 +19,8 @@ export const panosDePrato: Product[] = [
     title: 'Feliz Natal',
     description: 'Pano de prato com uma mensagem de Natal.',
     price: 10.00,
-    more: '/products/pano_de_prato_2',
+    more: '/produtos/002', 
+    stock: 5,
+    fullDescription: 'Outra descrição completa e detalhada.',
   },
 ];

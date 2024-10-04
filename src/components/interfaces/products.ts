@@ -7,3 +7,9 @@ export interface Product {
     more: string;
     category?: 'panos_de_prato' | 'toalhas' | 'bordados'; 
 }
+
+export interface ProductDetails extends Product {
+    fullDescription: string; // Descrição mais completa para exibição nos detalhes
+    stock: number; // Quantidade de estoque
+  }
+  
