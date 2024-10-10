@@ -1,6 +1,6 @@
 import { ProductDetails } from '../interfaces/products';
-import Pano1 from '../../assets/SubSections/Panos/Pano_001.jpeg';
-import Pano2 from '../../assets/SubSections/Panos/Pano_002.jpeg';
+import Pano1 from '../../assets/SubSections/Panos/Pano_001.png';
+import Pano2 from '../../assets/SubSections/Panos/Pano_002.png';
 
 export const panosDePrato: ProductDetails[] = [
   {
@@ -12,6 +12,8 @@ export const panosDePrato: ProductDetails[] = [
     more: '/produtos/001', 
     stock: 10,
     fullDescription: 'Uma descrição completa e detalhada do produto.',
+    favoriteIcon: 'fa-heart', 
+    cartIcon: 'fa-cart-plus',  
   },
   {
     id: '002',

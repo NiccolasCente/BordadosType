@@ -36,6 +36,11 @@ const ProductDetails: React.FC = () => {
             <Button variant="primary" className="btn-custom">
               Comprar
             </Button>
+
+            <div className="product-icons-list">
+              <i className="fas fa-heart"></i>
+              <i className="fas fa-cart-plus"></i>
+            </div>
           </Col>
         </Row>
       </Container>

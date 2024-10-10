@@ -6,6 +6,8 @@ export interface Product {
     price: number;
     more: string;
     category?: 'panos_de_prato' | 'toalhas' | 'bordados'; 
+    favoriteIcon?: string;
+    cartIcon?: string; 
 }
 
 export interface ProductDetails extends Product {
