@@ -5,13 +5,15 @@ import { panosDePrato } from "../Data/panosDePrato";
 import { bordados } from "../Data/bordados"; 
 import "../../assets/GlobalStyles.css";
 import "./ProductDetails.css";
+import { useCart } from './CartContext'; 
 
 const ProductDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>(); 
 
   const produtos = [...panosDePrato, ...bordados];
-
   const product = produtos.find((p) => p.id === id); 
+
+  const { addToCart } = useCart(); 
 
   if (!product) {
     return <p>Produto não encontrado!</p>;
@@ -33,7 +35,11 @@ const ProductDetails: React.FC = () => {
             <p className="product-description-detail">{product.description}</p>
             <p className="product-price-detail">R${product.price.toFixed(2)}</p>
             <p className="product-stock-detail">Apenas {product.stock} em estoque</p>
-            <Button variant="primary" className="btn-custom">
+            <Button 
+              variant="primary" 
+              className="btn-custom" 
+              onClick={() => addToCart(product)} 
+            >
               Comprar
             </Button>
 

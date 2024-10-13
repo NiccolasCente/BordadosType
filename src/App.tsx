@@ -16,22 +16,30 @@ import Bordados from './components/SubSections/Bordados';
 import ProductDetails from "./components/Common/ProductDetails";  
 import Footer from './components/Footer/Footer';
 
+// Import Contexts
+import { CartProvider } from './components/Common/CartContext';
+import { FavoritesProvider } from './components/Common/FavoritesContext'; // Ajuste o caminho conforme necessário
+
 function App() {
   return (
-    <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="/account" element={<Account />} /> 
-        {/* SubSections */}
-        <Route path="/panos" element={<Panos />} />
-        <Route path="/bordados" element={<Bordados />} />
-        {/* Resultados - Página de detalhes do produto */}
-        <Route path="/produtos/:id" element={<ProductDetails />} /> 
-      </Routes>
-        {/*Footer */}
-      <Footer/>
-    </Router>
+    <CartProvider>
+      <FavoritesProvider>
+        <Router>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Main />} />
+            <Route path="/account" element={<Account />} /> 
+            {/* SubSections */}
+            <Route path="/panos" element={<Panos />} />
+            <Route path="/bordados" element={<Bordados />} />
+            {/* Resultados - Página de detalhes do produto */}
+            <Route path="/produtos/:id" element={<ProductDetails />} /> 
+          </Routes>
+          {/*Footer */}
+          <Footer />
+        </Router>
+      </FavoritesProvider>
+    </CartProvider>
   );
 }
 
