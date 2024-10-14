@@ -47,6 +47,7 @@ const Main: React.FC = () => {
                     className="d-block w-100 carousel-img"
                     src={Toalhas}
                     alt="Toalhas de Banho"
+                    onClick={() => navigate("/toalhas")}
                   />
                 </div>
               </Carousel.Item>

@@ -1,20 +1,30 @@
-import { Product } from '../interfaces/products';
+import { ProductDetails } from '../interfaces/products';
+import Toalhas1 from '../../assets/SubSections/Toalhas/Toalhas1.png';
+import Toalhas2 from '../../assets/SubSections/Toalhas/Toalhas2.png';
 
-export const toalhas: Product[] = [
+export const toalhas: ProductDetails[] = [
   {
-    id: '003',
-    image: '/images/toalha1.jpg',
+    id: '005',
+    image: Toalhas1,
     title: 'Toalha 1',
     description: 'Descrição da Toalha 1.',
     price: 29.99,
-    more: '/products/toalha1',
+    more: '/produtos/005',
+    stock:1,
+    fullDescription:"oi",
+    favoriteIcon: 'fa-heart',
+    cartIcon: 'fa-cart-plus',
   },
   {
-    id: '004',
-    image: '/images/toalha2.jpg',
+    id: '006',
+    image: Toalhas2,
     title: 'Toalha 2',
     description: 'Descrição da Toalha 2.',
     price: 34.99,
-    more: '/products/toalha2',
+    more: '/produtos/006',
+    stock:1,
+    fullDescription:"oi",
+    favoriteIcon: 'fa-heart',
+    cartIcon: 'fa-cart-plus',
   },
 ];

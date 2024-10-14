@@ -7,11 +7,12 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
 import Account from "./components/Header/Account"; 
+import AboutMe from './components/Sections/AboutMe';
 
 // Import SubSections:
 import Panos from "./components/SubSections/Panos";
 import Bordados from './components/SubSections/Bordados';
-
+import Toalhas from "./components/SubSections/Toalhas";
 // Import Results:
 import ProductDetails from "./components/Common/ProductDetails";  
 import Footer from './components/Footer/Footer';
@@ -29,9 +30,11 @@ function App() {
           <Routes>
             <Route path="/" element={<Main />} />
             <Route path="/account" element={<Account />} /> 
+            <Route path="/sobremim" element={<AboutMe />} />
             {/* SubSections */}
             <Route path="/panos" element={<Panos />} />
             <Route path="/bordados" element={<Bordados />} />
+            <Route path="/toalhas" element={<Toalhas />} />
             {/* Resultados - Página de detalhes do produto */}
             <Route path="/produtos/:id" element={<ProductDetails />} /> 
           </Routes>

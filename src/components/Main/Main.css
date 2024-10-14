@@ -88,3 +88,35 @@
     height: 300px; 
   }
 }
+
+@media (max-width: 1366px) and (min-width: 1024px) {
+  .carousel-img-container {
+    height: 400px;
+  }
+
+  .carousel-control-prev, 
+  .carousel-control-next {
+    width: 35px;
+    height: 35px;
+  }
+
+  .carousel-control-prev {
+    left: 15em;
+  }
+
+  .carousel-control-next {
+    right: 15em;
+  }
+
+  .carousel-title {
+    font-size: 22px;
+  }
+
+  .products-button {
+    margin-top: 15px;
+  }
+
+  .btn-custom {
+    padding: 8px 18px;
+  }
+}

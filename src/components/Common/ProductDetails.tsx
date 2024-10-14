@@ -3,17 +3,20 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { panosDePrato } from "../Data/panosDePrato"; 
 import { bordados } from "../Data/bordados"; 
+import { toalhas } from "../Data/toalhas";
 import "../../assets/GlobalStyles.css";
 import "./ProductDetails.css";
 import { useCart } from './CartContext'; 
+import { useFavorites } from './FavoritesContext'; 
 
 const ProductDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>(); 
 
-  const produtos = [...panosDePrato, ...bordados];
+  const produtos = [...panosDePrato, ...bordados, ...toalhas];
   const product = produtos.find((p) => p.id === id); 
 
   const { addToCart } = useCart(); 
+  const { addToFavorites } = useFavorites(); 
 
   if (!product) {
     return <p>Produto não encontrado!</p>;
@@ -44,8 +47,16 @@ const ProductDetails: React.FC = () => {
             </Button>
 
             <div className="product-icons-list">
-              <i className="fas fa-heart"></i>
-              <i className="fas fa-cart-plus"></i>
+              <i 
+                className="fas fa-heart"
+                onClick={() => addToFavorites(product)} 
+                style={{ cursor: 'pointer' }}
+              ></i>
+              <i 
+                className="fas fa-cart-plus"
+                onClick={() => addToCart(product)} 
+                style={{ cursor: 'pointer' }}
+              ></i>
             </div>
           </Col>
         </Row>

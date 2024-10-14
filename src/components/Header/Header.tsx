@@ -134,10 +134,10 @@ const Header: React.FC = () => {
                   <Nav.Link as={Link} to="/">Início</Nav.Link>
                   <Nav.Link as={Link} to="/panos">Panos de prato</Nav.Link>
                   <Nav.Link as={Link} to="/bordados">Bordados</Nav.Link>
-                  <Nav.Link href="#">Toalhas</Nav.Link>
+                  <Nav.Link as={Link} to="/toalhas">Toalhas</Nav.Link>
                   <Nav.Link href="#">Novos Produtos</Nav.Link>
                   <Nav.Link href="#">Serviços</Nav.Link>
-                  <Nav.Link href="#">Sobre Mim</Nav.Link>
+                  <Nav.Link as={Link} to="/sobremim">Sobre Mim</Nav.Link>
                 </Nav>
               </Col>
             </Row>

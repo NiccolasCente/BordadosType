@@ -1,0 +1,12 @@
+#section-about{
+    background-image: url("../../assets//Main/main_gif.webp");
+    background-size: cover; 
+    background-position: center;
+}
+
+#img-fluid-about{
+    max-width: 60vh;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    
+}
