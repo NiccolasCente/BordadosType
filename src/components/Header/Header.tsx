@@ -25,13 +25,17 @@ const Header: React.FC = () => {
               <Col xs={12} md={4} className="d-flex justify-content-center justify-content-md-start">
                 <div className="d-flex align-items-center">
                   <FaPhone className="me-2" />
+                  <a href="https://wa.me/11940070057" target="_blank" rel="noopener noreferrer">
                   <span>(11) 94007-0057</span>
+                  </a>
                 </div>
               </Col>
               <Col xs={12} md={4} className="d-flex justify-content-center justify-content-md-center">
                 <div className="d-flex align-items-center">
                   <FaEnvelope className="me-2" />
+                  <a href="mailto:miriam.ap.cente@gmail.com">
                   <span>miriam.ap.cente@gmail.com</span>
+                  </a>
                 </div>
               </Col>
               <Col xs={12} md={4} className="d-flex justify-content-center justify-content-md-end">

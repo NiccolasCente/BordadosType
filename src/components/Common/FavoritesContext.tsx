@@ -1,17 +1,29 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
+
+interface FavoriteItem {
+  id: string;
+  title: string;
+}
 
 interface FavoritesContextType {
-  favoriteItems: any[];
-  addToFavorites: (item: any) => void;
+  favoriteItems: FavoriteItem[];
+  addToFavorites: (item: FavoriteItem) => void;
   removeFromFavorites: (id: string) => void;
 }
 
 const FavoritesContext = createContext<FavoritesContextType | undefined>(undefined);
 
 export const FavoritesProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [favoriteItems, setFavoriteItems] = useState<any[]>([]);
+  const [favoriteItems, setFavoriteItems] = useState<FavoriteItem[]>(() => {
+    const storedItems = localStorage.getItem('favoriteItems');
+    return storedItems ? JSON.parse(storedItems) : [];
+  });
 
-  const addToFavorites = (item: any) => {
+  useEffect(() => {
+    localStorage.setItem('favoriteItems', JSON.stringify(favoriteItems));
+  }, [favoriteItems]);
+
+  const addToFavorites = (item: FavoriteItem) => {
     setFavoriteItems((prevItems) => [...prevItems, item]);
   };
 
