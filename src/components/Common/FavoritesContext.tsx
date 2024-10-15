@@ -3,11 +3,14 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 interface FavoriteItem {
   id: string;
   title: string;
+  price: number;
+  image: string;
+  quantity: number;
 }
 
 interface FavoritesContextType {
   favoriteItems: FavoriteItem[];
-  addToFavorites: (item: FavoriteItem) => void;
+  addToFavorites: (product: FavoriteItem) => void;
   removeFromFavorites: (id: string) => void;
 }
 
@@ -23,12 +26,17 @@ export const FavoritesProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     localStorage.setItem('favoriteItems', JSON.stringify(favoriteItems));
   }, [favoriteItems]);
 
-  const addToFavorites = (item: FavoriteItem) => {
-    setFavoriteItems((prevItems) => [...prevItems, item]);
+  const addToFavorites = (product: FavoriteItem) => {
+    setFavoriteItems((prevItems) => {
+      if (prevItems.find((item) => item.id === product.id)) {
+        return prevItems; // O item já está nos favoritos
+      }
+      return [...prevItems, product];
+    });
   };
 
   const removeFromFavorites = (id: string) => {
-    setFavoriteItems((prevItems) => prevItems.filter(item => item.id !== id));
+    setFavoriteItems((prevItems) => prevItems.filter((item) => item.id !== id));
   };
 
   return (

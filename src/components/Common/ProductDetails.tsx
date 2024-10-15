@@ -36,7 +36,7 @@ const ProductDetails: React.FC = () => {
           <Col md={6}>
             <h1 className="product-title-detail">{product.title}</h1>
             <p className="product-description-detail">{product.description}</p>
-            <p className="product-price-detail">R${product.price.toFixed(2)}</p>
+            <p className="product-price-detail">R$ {product.price.toFixed(2)}</p>
             <p className="product-stock-detail">Apenas {product.stock} em estoque</p>
             <Button 
               variant="primary" 
@@ -49,7 +49,7 @@ const ProductDetails: React.FC = () => {
             <div className="product-icons-list">
               <i 
                 className="fas fa-heart"
-                onClick={() => addToFavorites(product)} 
+                onClick={() => addToFavorites({ ...product, quantity: 1 })} // Adicionando a lógica de quantidade
                 style={{ cursor: 'pointer' }}
               ></i>
               <i 

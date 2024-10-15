@@ -14,6 +14,7 @@ export const toalhas: ProductDetails[] = [
     fullDescription:"oi",
     favoriteIcon: 'fa-heart',
     cartIcon: 'fa-cart-plus',
+    quantity: 1,
   },
   {
     id: '006',
@@ -26,5 +27,6 @@ export const toalhas: ProductDetails[] = [
     fullDescription:"oi",
     favoriteIcon: 'fa-heart',
     cartIcon: 'fa-cart-plus',
+    quantity: 1,
   },
 ];

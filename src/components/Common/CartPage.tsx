@@ -1,37 +1,57 @@
 import React from 'react';
-import { Container, Row, Col, ListGroup, Button } from 'react-bootstrap';
 import { useCart } from './CartContext'; 
+import { ListGroup, Button, Image } from 'react-bootstrap';
 
 const CartPage: React.FC = () => {
-  const { cartItems, removeFromCart } = useCart();
+  const { cartItems, increaseQuantity, decreaseQuantity, removeFromCart } = useCart();
 
-  const calculateTotal = () => {
-    return cartItems.reduce((total, item) => total + item.price, 0).toFixed(2);
-  };
+  const totalAmount = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   return (
-    <Container>
-      <h1>Carrinho de Compras</h1>
-      <Row>
-        {cartItems.length > 0 ? (
-          <Col xs={12}>
-            <ListGroup>
-              {cartItems.map((item) => (
-                <ListGroup.Item key={item.id}>
+    <div>
+      <h2>Seu Carrinho</h2>
+      {cartItems.length === 0 ? (
+        <p>Seu carrinho está vazio.</p>
+      ) : (
+        <>
+          <ListGroup>
+            {cartItems.map((item) => (
+              <ListGroup.Item key={item.id} className="d-flex align-items-center">
+                <Image src={item.image} alt={item.title} width="100" height="100" />
+                <div className="ms-3">
                   <h5>{item.title}</h5>
-                  <Button variant="danger" onClick={() => removeFromCart(item.id)}>Remover</Button>
-                </ListGroup.Item>
-              ))}
-            </ListGroup>
-            <h3>Total: R${calculateTotal()}</h3>
-          </Col>
-        ) : (
-          <Col xs={12}>
-            <p>Nenhum item no carrinho.</p>
-          </Col>
-        )}
-      </Row>
-    </Container>
+                  <p>Preço: R$ {item.price.toFixed(2)}</p>
+                  <p>Quantidade: {item.quantity}</p>
+                  <div>
+                    <Button
+                      variant="outline-secondary"
+                      onClick={() => decreaseQuantity(item.id)}
+                      disabled={item.quantity <= 1}
+                    >
+                      -
+                    </Button>
+                    <Button
+                      variant="outline-secondary"
+                      onClick={() => increaseQuantity(item.id)}
+                    >
+                      +
+                    </Button>
+                    <Button
+                      variant="danger"
+                      onClick={() => removeFromCart(item.id)}
+                      className="ms-2"
+                    >
+                      Remover
+                    </Button>
+                  </div>
+                </div>
+              </ListGroup.Item>
+            ))}
+          </ListGroup>
+          <h3 className="mt-4">Total: R$ {totalAmount.toFixed(2)}</h3>
+        </>
+      )}
+    </div>
   );
 };
 

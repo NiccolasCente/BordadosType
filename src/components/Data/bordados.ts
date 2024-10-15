@@ -12,6 +12,8 @@ export const bordados: ProductDetails[] = [
     more: '/produtos/003',
     stock: 1,
     fullDescription:'Oi',
+    quantity: 1,
+    
   },
   {
     id: '004',
@@ -22,5 +24,6 @@ export const bordados: ProductDetails[] = [
     more: '/produtos/004',
     stock:1,
     fullDescription:'Oi',
+    quantity: 1,
   },
 ];

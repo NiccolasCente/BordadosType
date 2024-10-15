@@ -18,13 +18,13 @@ const ProductCard: React.FC<ProductProps> = ({ product }) => {
       <div className="product-info">       
         <h2 className="product-title">{product.title}</h2>
         <p className="product-description">{product.description}</p>
-        <p className="product-price">R${product.price.toFixed(2)}</p>
+        <p className="product-price">R$ {product.price.toFixed(2)}</p>
       </div>
       <div className="icons-wrapper">
         <i 
           className="fas fa-heart" 
           style={{ cursor: 'pointer', marginRight: '10px' }} 
-          onClick={() => addToFavorites(product)} 
+          onClick={() => addToFavorites({ ...product, quantity: 1 })} // Adicionando a lógica de quantidade
         ></i>
         <i 
           className="fas fa-cart-plus" 

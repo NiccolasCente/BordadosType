@@ -1,32 +1,40 @@
 import React from 'react';
-import { Container, Row, Col, ListGroup, Button } from 'react-bootstrap';
 import { useFavorites } from './FavoritesContext'; 
+import { ListGroup, Button, Image } from 'react-bootstrap';
 
 const FavoritesPage: React.FC = () => {
   const { favoriteItems, removeFromFavorites } = useFavorites();
 
   return (
-    <Container>
-      <h1>Favoritos</h1>
-      <Row>
-        {favoriteItems.length > 0 ? (
-          <Col xs={12}>
-            <ListGroup>
-              {favoriteItems.map((item) => (
-                <ListGroup.Item key={item.id}>
+    <div>
+      <h2>Favoritos</h2>
+      {favoriteItems.length === 0 ? (
+        <p>Você não tem favoritos.</p>
+      ) : (
+        <>
+          <ListGroup>
+            {favoriteItems.map((item) => (
+              <ListGroup.Item key={item.id} className="d-flex align-items-center">
+                <Image src={item.image} alt={item.title} width="100" height="100" />
+                <div className="ms-3">
                   <h5>{item.title}</h5>
-                  <Button variant="danger" onClick={() => removeFromFavorites(item.id)}>Remover</Button>
-                </ListGroup.Item>
-              ))}
-            </ListGroup>
-          </Col>
-        ) : (
-          <Col xs={12}>
-            <p>Nenhum item favoritado.</p>
-          </Col>
-        )}
-      </Row>
-    </Container>
+                  <p>Preço: R$ {item.price.toFixed(2)}</p>
+                  <div>
+                    <Button
+                      variant="danger"
+                      onClick={() => removeFromFavorites(item.id)}
+                      className="ms-2"
+                    >
+                      Remover
+                    </Button>
+                  </div>
+                </div>
+              </ListGroup.Item>
+            ))}
+          </ListGroup>
+        </>
+      )}
+    </div>
   );
 };
 

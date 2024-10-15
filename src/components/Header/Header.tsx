@@ -5,6 +5,7 @@ import { Link, useLocation } from "react-router-dom";
 import Logo from "../../assets/Header/Logo.png";
 import { useCart } from "../Common/CartContext";
 import { useFavorites } from "../Common/FavoritesContext";
+import CartPage from "../Common/CartPage";
 import "./Header.css";
 import "../../assets/GlobalStyles.css";
 
@@ -26,7 +27,7 @@ const Header: React.FC = () => {
                 <div className="d-flex align-items-center">
                   <FaPhone className="me-2" />
                   <a href="https://wa.me/11940070057" target="_blank" rel="noopener noreferrer">
-                  <span>(11) 94007-0057</span>
+                    <span>(11) 94007-0057</span>
                   </a>
                 </div>
               </Col>
@@ -34,7 +35,7 @@ const Header: React.FC = () => {
                 <div className="d-flex align-items-center">
                   <FaEnvelope className="me-2" />
                   <a href="mailto:miriam.ap.cente@gmail.com">
-                  <span>miriam.ap.cente@gmail.com</span>
+                    <span>miriam.ap.cente@gmail.com</span>
                   </a>
                 </div>
               </Col>
@@ -92,7 +93,6 @@ const Header: React.FC = () => {
           </Container>
         </div>
 
-        {/* Modal para Favoritos */}
         <Modal show={showFavorites} onHide={() => setShowFavorites(false)}>
           <Modal.Header closeButton>
             <Modal.Title>Itens Favoritos</Modal.Title>
@@ -100,33 +100,29 @@ const Header: React.FC = () => {
           <Modal.Body>
             {favoriteItems.length > 0 ? (
               <ul>
-                {favoriteItems.map((item, index) => (
-                  <li key={index}>{item.title}</li>
+                {favoriteItems.map((item) => (
+                  <li key={item.id}>
+                    <h5>{item.title}</h5>
+                    {item.image && <img src={item.image} alt={item.title} style={{ width: '100px', height: 'auto' }} />}
+                  </li>
                 ))}
               </ul>
             ) : (
               <p>Nenhum item favorito.</p>
             )}
-            <Button variant="primary">Ver todos os itens favoritos</Button>
+            <Button variant="primary" 
+             onClick={() => setShowFavorites(false)}>
+              Ver todos os itens favoritos
+            </Button>
           </Modal.Body>
         </Modal>
 
-        {/* Modal para Carrinho */}
-        <Modal show={showCart} onHide={() => setShowCart(false)}>
+        <Modal show={showCart} onHide={() => setShowCart(false)} size="lg">
           <Modal.Header closeButton>
             <Modal.Title>Carrinho de Compras</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            {cartItems.length > 0 ? (
-              <ul>
-                {cartItems.map((item, index) => (
-                  <li key={index}>{item.title}</li>
-                ))}
-              </ul>
-            ) : (
-              <p>Carrinho vazio.</p>
-            )}
-            <Button variant="primary">Ver todos os itens no carrinho</Button>
+            <CartPage />
           </Modal.Body>
         </Modal>
 
