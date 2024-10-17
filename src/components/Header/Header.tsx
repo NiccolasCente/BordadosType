@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { Container, Row, Col, Nav, Form, FormControl, Button, Modal } from "react-bootstrap";
-import { FaPhone, FaEnvelope, FaInstagram, FaUser, FaHeart, FaShoppingCart, FaSearch } from "react-icons/fa";
+import { Container, Row, Col, Nav, Modal } from "react-bootstrap";
+import { FaPhone, FaEnvelope, FaInstagram, FaUser, FaHeart, FaShoppingCart } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 import Logo from "../../assets/Header/Logo.png";
 import { useCart } from "../Common/CartContext";
 import { useFavorites } from "../Common/FavoritesContext";
 import CartPage from "../Common/CartPage";
+import SearchBar from "./SearchBar";
 import "./Header.css";
 import "../../assets/GlobalStyles.css";
 import FavoritesPage from "../Common/FavoritesPage";
@@ -61,17 +62,7 @@ const Header: React.FC = () => {
                 </Link>
               </Col>
               <Col xs={12} md={4} className="header-search">
-                <Form className="d-flex">
-                  <FormControl
-                    type="search"
-                    placeholder="Panos de prato, bordados e toalhas"
-                    className="me-2"
-                    aria-label="Search"
-                  />
-                  <Button variant="outline-secondary">
-                    <FaSearch style={{ color: "#CD853F" }} />
-                  </Button>
-                </Form>
+                <SearchBar />
               </Col>
               <Col xs={12} md={4} className="d-flex justify-content-end header-nav">
                 <Nav>
