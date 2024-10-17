@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import {Link} from "react-router-dom"
 import { FaFacebookF, FaGoogle, FaInstagram, FaGem, FaHome, FaEnvelope, FaPhone } from "react-icons/fa";
 
 const Footer: React.FC = () => {
@@ -38,9 +39,9 @@ const Footer: React.FC = () => {
 
             <Col md={2} lg={2} xl={2} className="mx-auto mb-4">
               <h6 className="text-uppercase fw-bold mb-4">Produtos</h6>
-              <p><a href="#!" className="text-reset">Panos de prato</a></p>
-              <p><a href="#!" className="text-reset">Bordados</a></p>
-              <p><a href="#!" className="text-reset">Toalhas</a></p>
+              <p><Link to="/panos" className="text-reset">Panos de prato</Link></p>
+              <p><Link to="/bordados" className="text-reset">Bordados</Link></p>
+              <p><Link to="/toalhas" className="text-reset">Toalhas</Link></p>
             </Col>
 
             <Col md={4} lg={3} xl={3} className="mx-auto mb-md-0 mb-4">

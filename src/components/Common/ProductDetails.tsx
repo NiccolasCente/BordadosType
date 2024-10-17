@@ -3,7 +3,7 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { panosDePrato } from "../Data/panosDePrato"; 
 import { bordados } from "../Data/bordados"; 
-import { toalhas } from "../Data/toalhas";
+import { toalhas } from "../Data/toalhas";  
 import "../../assets/GlobalStyles.css";
 import "./ProductDetails.css";
 import { useCart } from './CartContext'; 
@@ -16,11 +16,14 @@ const ProductDetails: React.FC = () => {
   const product = produtos.find((p) => p.id === id); 
 
   const { addToCart } = useCart(); 
-  const { addToFavorites } = useFavorites(); 
+  const { addToFavorites, removeFromFavorites, favoriteItems } = useFavorites(); 
 
   if (!product) {
     return <p>Produto não encontrado!</p>;
   }
+
+  // Verifica se o produto já está nos favoritos
+  const isFavorited = favoriteItems.some((item) => item.id === product.id);
 
   return (
     <section className="product-details">
@@ -47,11 +50,19 @@ const ProductDetails: React.FC = () => {
             </Button>
 
             <div className="product-icons-list">
-              <i 
-                className="fas fa-heart"
-                onClick={() => addToFavorites({ ...product, quantity: 1 })} // Adicionando a lógica de quantidade
-                style={{ cursor: 'pointer' }}
-              ></i>
+              {isFavorited ? (
+                <i 
+                  className="fas fa-heart-broken"
+                  onClick={() => removeFromFavorites(product.id)}
+                  style={{ cursor: 'pointer', color: 'red' }} // Ícone para remover dos favoritos
+                ></i>
+              ) : (
+                <i 
+                  className="fas fa-heart"
+                  onClick={() => addToFavorites({ ...product, quantity: 1 })}
+                  style={{ cursor: 'pointer' }}
+                ></i>
+              )}
               <i 
                 className="fas fa-cart-plus"
                 onClick={() => addToCart(product)} 

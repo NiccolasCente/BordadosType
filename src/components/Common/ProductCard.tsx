@@ -10,7 +10,10 @@ interface ProductProps {
 
 const ProductCard: React.FC<ProductProps> = ({ product }) => {
   const { addToCart } = useCart(); 
-  const { addToFavorites } = useFavorites();
+  const { addToFavorites, removeFromFavorites, favoriteItems } = useFavorites();
+
+  // Verifica se o produto já está nos favoritos
+  const isFavorited = favoriteItems.some((item) => item.id === product.id);
 
   return (
     <div key={product.id} className="product-card">
@@ -21,11 +24,19 @@ const ProductCard: React.FC<ProductProps> = ({ product }) => {
         <p className="product-price">R$ {product.price.toFixed(2)}</p>
       </div>
       <div className="icons-wrapper">
-        <i 
-          className="fas fa-heart" 
-          style={{ cursor: 'pointer', marginRight: '10px' }} 
-          onClick={() => addToFavorites({ ...product, quantity: 1 })} // Adicionando a lógica de quantidade
-        ></i>
+        {isFavorited ? (
+          <i 
+            className="fas fa-heart-broken" 
+            style={{ cursor: 'pointer', marginRight: '10px', color: 'red' }} 
+            onClick={() => removeFromFavorites(product.id)} // Remover dos favoritos
+          ></i>
+        ) : (
+          <i 
+            className="fas fa-heart" 
+            style={{ cursor: 'pointer', marginRight: '10px' }} 
+            onClick={() => addToFavorites({ ...product, quantity: 1 })} // Adicionar aos favoritos
+          ></i>
+        )}
         <i 
           className="fas fa-cart-plus" 
           style={{ cursor: 'pointer' }} 

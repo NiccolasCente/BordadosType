@@ -8,6 +8,7 @@ import { useFavorites } from "../Common/FavoritesContext";
 import CartPage from "../Common/CartPage";
 import "./Header.css";
 import "../../assets/GlobalStyles.css";
+import FavoritesPage from "../Common/FavoritesPage";
 
 const Header: React.FC = () => {
   const location = useLocation();
@@ -93,27 +94,12 @@ const Header: React.FC = () => {
           </Container>
         </div>
 
-        <Modal show={showFavorites} onHide={() => setShowFavorites(false)}>
+        <Modal show={showFavorites} onHide={() => setShowFavorites(false)} size="lg">
           <Modal.Header closeButton>
             <Modal.Title>Itens Favoritos</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            {favoriteItems.length > 0 ? (
-              <ul>
-                {favoriteItems.map((item) => (
-                  <li key={item.id}>
-                    <h5>{item.title}</h5>
-                    {item.image && <img src={item.image} alt={item.title} style={{ width: '100px', height: 'auto' }} />}
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p>Nenhum item favorito.</p>
-            )}
-            <Button variant="primary" 
-             onClick={() => setShowFavorites(false)}>
-              Ver todos os itens favoritos
-            </Button>
+            <FavoritesPage />
           </Modal.Body>
         </Modal>
 
