@@ -29,7 +29,7 @@ export const FavoritesProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   const addToFavorites = (product: FavoriteItem) => {
     setFavoriteItems((prevItems) => {
       if (prevItems.find((item) => item.id === product.id)) {
-        return prevItems; // O item já está nos favoritos
+        return prevItems; 
       }
       return [...prevItems, product];
     });

@@ -20,7 +20,7 @@ const AboutMe: React.FC = () => {
           </Col>
           <Col md={6}> 
             <div>
-              <h2 style={{fontSize: '3em'}}>Quem Sou EU?</h2>
+              <h2 style={{fontSize: '3em', color:'#CD853F'}}>Quem Sou EU?</h2>
               <p>
                 Olá, me chamo Miriam Rosa, tenho 67 anos e desde os anos 2000,
                 minha paixão são os bordados. <br />

@@ -1,22 +1,29 @@
 import React from "react";
 import { useFavorites } from "./FavoritesContext";
 import { ListGroup, Button, Image } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import "../../assets/Common/FavoritesPage.css"
 
 const FavoritesPage: React.FC = () => {
   const { favoriteItems, removeFromFavorites } = useFavorites();
 
   return (
-    <div>
+    <div className="favorites-page">
+      <h2 className="favorites-header">Favoritos</h2>
       {favoriteItems.length === 0 ? (
         <p>Você não tem favoritos.</p>
       ) : (
         <ListGroup>
           {favoriteItems.map((item) => (
-            <ListGroup.Item key={item.id} className="d-flex align-items-center">
-              <Image src={item.image} alt={item.title} width="100" height="100" />
-              <div className="ms-3">
-                <h5>{item.title}</h5>
-                <p>Preço: R$ {item.price.toFixed(2)}</p>
+            <ListGroup.Item key={item.id} className="favorite-item">
+              <Link to={`/produtos/${item.id}`}>
+                <Image src={item.image} alt={item.title} className="favorite-item-image" />
+              </Link>
+              <div className="favorite-item-details">
+                <Link to={`/produtos/${item.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <h5 className="favorite-item-title">{item.title}</h5>
+                </Link>
+                <p className="favorite-item-price">Preço: R$ {item.price.toFixed(2)}</p>
                 <Button
                   variant="danger"
                   onClick={() => removeFromFavorites(item.id)}

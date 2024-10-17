@@ -1,18 +1,17 @@
 import React from "react";
-import { Product } from '../interfaces/products';
+import { ProductDetails } from '../interfaces/products';  
 import '../../assets/GlobalStyles.css';
 import { useCart } from './CartContext'; 
 import { useFavorites } from './FavoritesContext'; 
 
 interface ProductProps {
-  product: Product;
+  product: ProductDetails;  
 }
 
 const ProductCard: React.FC<ProductProps> = ({ product }) => {
   const { addToCart } = useCart(); 
   const { addToFavorites, removeFromFavorites, favoriteItems } = useFavorites();
 
-  // Verifica se o produto já está nos favoritos
   const isFavorited = favoriteItems.some((item) => item.id === product.id);
 
   return (
@@ -28,13 +27,13 @@ const ProductCard: React.FC<ProductProps> = ({ product }) => {
           <i 
             className="fas fa-heart-broken" 
             style={{ cursor: 'pointer', marginRight: '10px', color: 'red' }} 
-            onClick={() => removeFromFavorites(product.id)} // Remover dos favoritos
+            onClick={() => removeFromFavorites(product.id)}  
           ></i>
         ) : (
           <i 
             className="fas fa-heart" 
             style={{ cursor: 'pointer', marginRight: '10px' }} 
-            onClick={() => addToFavorites({ ...product, quantity: 1 })} // Adicionar aos favoritos
+            onClick={() => addToFavorites({ ...product, quantity: 1 })}  
           ></i>
         )}
         <i 

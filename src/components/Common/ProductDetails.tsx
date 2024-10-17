@@ -22,7 +22,6 @@ const ProductDetails: React.FC = () => {
     return <p>Produto não encontrado!</p>;
   }
 
-  // Verifica se o produto já está nos favoritos
   const isFavorited = favoriteItems.some((item) => item.id === product.id);
 
   return (
@@ -54,7 +53,7 @@ const ProductDetails: React.FC = () => {
                 <i 
                   className="fas fa-heart-broken"
                   onClick={() => removeFromFavorites(product.id)}
-                  style={{ cursor: 'pointer', color: 'red' }} // Ícone para remover dos favoritos
+                  style={{ cursor: 'pointer', color: 'red' }} 
                 ></i>
               ) : (
                 <i 

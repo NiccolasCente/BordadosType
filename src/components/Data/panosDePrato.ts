@@ -14,7 +14,7 @@ export const panosDePrato: ProductDetails[] = [
     fullDescription: 'Uma descrição completa e detalhada do produto.',
     favoriteIcon: 'fa-heart', 
     cartIcon: 'fa-cart-plus',  
-    quantity: 10,
+    quantity: 1,
   },
   {
     id: '002',
@@ -25,6 +25,6 @@ export const panosDePrato: ProductDetails[] = [
     more: '/produtos/002', 
     stock: 5,
     fullDescription: 'Outra descrição completa e detalhada.',
-    quantity: 5,
+    quantity: 1,
   },
 ];

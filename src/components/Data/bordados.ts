@@ -6,9 +6,9 @@ export const bordados: ProductDetails[] = [
   {
     id: '003',
     image: Bordado1,
-    title: 'Bordado 1',
-    description: 'Descrição do Bordado 1.',
-    price: 39.99,
+    title: 'Ursinha Dormindo',
+    description: 'Uma ursinha dormindo em seu travesseiro.',
+    price: 25.00,
     more: '/produtos/003',
     stock: 1,
     fullDescription:'Oi',
@@ -18,8 +18,8 @@ export const bordados: ProductDetails[] = [
   {
     id: '004',
     image: Bordado2,
-    title: 'Bordado 2',
-    description: 'Descrição do Bordado 2.',
+    title: 'Conjunto de Bordados',
+    description: 'Um conjunto de bordados, 4 bordados por um preço de 50 reais.',
     price: 49.99,
     more: '/produtos/004',
     stock:1,

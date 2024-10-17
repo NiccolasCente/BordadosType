@@ -1,17 +1,13 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
+import { ProductDetails } from '../interfaces/products'; 
 
-
-interface CartItem {
-  id: string;
-  title: string;
-  price: number;
-  image: string;
-  quantity: number;
+interface CartItem extends ProductDetails {
+  quantity: number; 
 }
 
 interface CartContextType {
   cartItems: CartItem[];
-  addToCart: (product: CartItem) => void;
+  addToCart: (product: ProductDetails) => void;
   removeFromCart: (id: string) => void;
   increaseQuantity: (id: string) => void;
   decreaseQuantity: (id: string) => void;
@@ -29,14 +25,21 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
   }, [cartItems]);
 
-  const addToCart = (product: CartItem) => {
+  const addToCart = (product: ProductDetails) => {
     setCartItems((prevItems) => {
       const existingItem = prevItems.find((i) => i.id === product.id);
+
       if (existingItem) {
-        return prevItems.map((i) =>
-          i.id === product.id ? { ...i, quantity: i.quantity + 1 } : i
-        );
+        if (existingItem.quantity < product.stock) {
+          return prevItems.map((i) =>
+            i.id === product.id ? { ...i, quantity: i.quantity + 1 } : i
+          );
+        } else {
+          alert('Quantidade máxima no estoque alcançada!');
+          return prevItems; 
+        }
       }
+
       return [...prevItems, { ...product, quantity: 1 }];
     });
   };
@@ -48,7 +51,9 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const increaseQuantity = (id: string) => {
     setCartItems((prevItems) =>
       prevItems.map((item) =>
-        item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+        item.id === id && item.quantity < item.stock
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
       )
     );
   };

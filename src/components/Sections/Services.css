@@ -1,0 +1,56 @@
+#services {
+    padding: 50px 0;
+    background-color: #f8f9fa; 
+    background-image: url("../../assets//Main/main_gif.webp");
+    background-size: cover; 
+    background-position: center;
+  }
+  
+  #services h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  #services p {
+    font-size: 1.2rem;
+    color: #000000;
+    line-height: 1.8;
+    text-align: center;
+  }
+  
+  #services ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+  }
+  
+  #services ul li {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    padding-left: 10px;
+    position: relative;
+    color: #000000;
+  }
+  
+  #services ul li::before {
+    content: '•';
+    color: #007bff; 
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+  }
+  
+  #services strong {
+    color:#CD853F;
+  }
+  
+  #services p:last-child {
+    margin-top: 30px;
+    font-weight: bold;
+    text-align: center;
+  }
+  

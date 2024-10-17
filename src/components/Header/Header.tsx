@@ -122,7 +122,7 @@ const Header: React.FC = () => {
                   <Nav.Link as={Link} to="/bordados">Bordados</Nav.Link>
                   <Nav.Link as={Link} to="/toalhas">Toalhas</Nav.Link>
                   <Nav.Link href="#">Novos Produtos</Nav.Link>
-                  <Nav.Link href="#">Serviços</Nav.Link>
+                  <Nav.Link as={Link} to="/servicos">Serviços</Nav.Link>
                   <Nav.Link as={Link} to="/sobremim">Sobre Mim</Nav.Link>
                 </Nav>
               </Col>
