@@ -9,12 +9,11 @@ import Main from "./components/Main/Main";
 import Account from "./components/Header/Account"; 
 import AboutMe from './components/Sections/AboutMe';
 import Services from './components/Sections/Services';
-
 // Import SubSections:
 import Panos from "./components/SubSections/Panos";
 import Bordados from './components/SubSections/Bordados';
 import Toalhas from "./components/SubSections/Toalhas";
-
+import AllProducts from './components/Sections/AllProducts';
 // Import Results:
 import ProductDetails from "./components/Common/ProductDetails";  
 import Footer from './components/Footer/Footer';
@@ -33,12 +32,14 @@ function App() {
             {/*Sections */}
             <Route path="/" element={<Main />} />
             <Route path="/account" element={<Account />} /> 
-            <Route path="/sobremim" element={<AboutMe />} />
             <Route path="/servicos" element={<Services />} />
+            <Route path="/sobremim" element={<AboutMe />} />
+
             {/* SubSections */}
             <Route path="/panos" element={<Panos />} />
             <Route path="/bordados" element={<Bordados />} />
             <Route path="/toalhas" element={<Toalhas />} />
+            <Route path="/todososprodutos" element={<AllProducts />} />
             {/* Resultados - Página de detalhes do produto */}
             <Route path="/produtos/:id" element={<ProductDetails />} /> 
           </Routes>

@@ -12,6 +12,7 @@
   width: 100%;
   height: auto;
   border-radius: 10px;
+  border: 1px solid black;
 }
 
 .product-title-detail {
@@ -23,7 +24,7 @@
 
 .product-description-detail {
   font-size: 1rem;
-  color: #555;
+  color: #000000;
   margin-bottom: 20px;
 }
 
@@ -36,6 +37,79 @@
 
 .product-stock-detail {
   font-size: 1rem;
-  color: #888;
+  color: #000000;
   margin-bottom: 20px;
+}
+
+.breadcrumb {
+  background-color: transparent;
+  padding: 10px 0;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.breadcrumb-item {
+  color: #333; 
+  text-decoration: none; 
+}
+
+.breadcrumb-item a {
+  color: inherit;
+  text-decoration: none; 
+}
+
+.breadcrumb-item a:hover {
+  text-decoration: underline; 
+}
+
+.breadcrumb-item.active {
+  font-weight: bold; 
+}
+
+.calculate-frete-box {
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.calculate-frete-header {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+.frete-icon {
+  margin-right: 10px; 
+}
+
+.frete-text {
+  flex-grow: 1; 
+}
+
+.frete-chevron {
+  margin-left: auto; 
+}
+
+.calculate-frete-form {
+  margin-top: 15px;
+}
+
+.calcular-frete-button {
+  margin-top: 10px; 
+  background-color: #007bff; 
+
+}
+
+.calcular-frete-button:hover {
+  background-color: #0056b3; 
+}
+
+.unknown-cep {
+  margin-top: 10px;
 }

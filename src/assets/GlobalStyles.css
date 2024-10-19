@@ -7,6 +7,10 @@
     font-style: normal;
 }
 
+h1{
+  color: #CD853F;
+}
+
 .product-card {
   border: 2px solid #000; 
   border-radius: 8px; 

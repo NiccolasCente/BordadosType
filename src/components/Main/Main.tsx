@@ -58,7 +58,9 @@ const Main: React.FC = () => {
         <Row>
           <Col>
             <div className="products-button">
-              <Button variant="primary" className="btn-custom">
+              <Button variant="primary" 
+              className="btn-custom"
+              onClick={() => navigate("/todososprodutos")}>
                 VER TODOS OS PRODUTOS
               </Button>
             </div>

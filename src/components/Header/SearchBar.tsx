@@ -7,37 +7,34 @@ const SearchBar: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
 
-  const titles = [
-    'Ursinha Dormindo',
-    'Conjunto de Bordados',
-    'Dias da Semana',
-    'Feliz Natal',
-    'Hora do Banho',
-    'Banho do Príncipe',
-    'Panos de Prato',
-    'Toalhas' 
-  ];
-
   const handleSearch = (event: React.FormEvent) => {
     event.preventDefault();
 
     const lowerSearchTerm = searchTerm.toLowerCase();
 
-    const matchedTitle = titles.find(title => 
-      title.toLowerCase().includes(lowerSearchTerm)
-    );
-
-    if (matchedTitle) {
-      if (matchedTitle.toLowerCase().includes('bordados')) {
-        navigate('/bordados');
-      } else if (matchedTitle.toLowerCase().includes('toalhas')) {
-        navigate('/toalhas');
-      } else if (matchedTitle.toLowerCase().includes('panos')) {
-        navigate('/panos');
-      }
+    if (lowerSearchTerm.includes('dias') || lowerSearchTerm.includes('semana') || lowerSearchTerm.includes('da semana')) {
+      navigate('/produtos/001');
+    } else if (lowerSearchTerm.includes('natal') || lowerSearchTerm.includes('feliz natal')) {
+      navigate('/produtos/002');
+    } else if (lowerSearchTerm.includes('ursinha') || lowerSearchTerm.includes('ursinha dormindo')) {
+      navigate('/produtos/003');
+    } else if (lowerSearchTerm.includes('conjunto de bordados')) {
+      navigate('/produtos/004');
+    } else if (lowerSearchTerm.includes('príncipe') || lowerSearchTerm.includes('principe') || lowerSearchTerm.includes('do príncipe') || lowerSearchTerm.includes('do principe')) {
+      navigate('/produtos/005');
+    } else if (lowerSearchTerm.includes('hora') || lowerSearchTerm.includes('hora do banho') || lowerSearchTerm.includes('do banho')) {
+      navigate('/produtos/006');
+    } else if (lowerSearchTerm.includes('bordados')) {
+      navigate('/bordados');
+    } else if (lowerSearchTerm.includes('toalhas')) {
+      navigate('/toalhas');
+    } else if (lowerSearchTerm.includes('panos')) {
+      navigate('/panos');
     } else {
       alert("Nenhum item encontrado para sua busca.");
     }
+
+    setSearchTerm("");
   };
 
   return (
