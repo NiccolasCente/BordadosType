@@ -21,6 +21,7 @@ import Footer from './components/Footer/Footer';
 // Import Contexts
 import { CartProvider } from './components/Common/CartContext';
 import { FavoritesProvider } from './components/Common/FavoritesContext'; 
+import NewProducts from './components/Sections/NewProducts';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
             {/*Sections */}
             <Route path="/" element={<Main />} />
             <Route path="/account" element={<Account />} /> 
+            <Route path="/novosprodutos" element={<NewProducts />} />
             <Route path="/servicos" element={<Services />} />
             <Route path="/sobremim" element={<AboutMe />} />
 

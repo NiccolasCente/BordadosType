@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { panosDePrato } from "../Data/panosDePrato"; 
 import { bordados } from "../Data/bordados"; 
 import { toalhas } from "../Data/toalhas";  
+import { newProducts } from "../Data/NewProducts";
 import "../../assets/GlobalStyles.css";
 import "./ProductDetails.css";
 import { useCart } from './CartContext'; 
@@ -12,7 +13,7 @@ import { FaTruck, FaChevronDown } from "react-icons/fa";
 
 const ProductDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>(); 
-  const produtos = [...panosDePrato, ...bordados, ...toalhas];
+  const produtos = [...panosDePrato, ...bordados, ...toalhas, ...newProducts]; 
   const product = produtos.find((p) => p.id === id); 
   const { addToCart } = useCart(); 
   const { addToFavorites, removeFromFavorites, favoriteItems } = useFavorites(); 
@@ -27,6 +28,7 @@ const ProductDetails: React.FC = () => {
     if (panosDePrato.includes(product)) return "Panos de Prato";
     if (bordados.includes(product)) return "Bordados";
     if (toalhas.includes(product)) return "Toalhas";
+    if (newProducts.includes(product)) return "Novos Produtos";
     return "Outros";  
   };
 
@@ -40,6 +42,8 @@ const ProductDetails: React.FC = () => {
         return "/bordados";
       case "Toalhas":
         return "/toalhas";
+      case "Novos Produtos":
+        return "/novosprodutos";
       default:
         return "/produtos";
     }
